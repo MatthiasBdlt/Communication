@@ -11,65 +11,30 @@
 //////////////////////////////////////////////////////////////////////
 
 #include <Arduino.h>
-#include "LED.h"
 
-#define Nombre_Led 6
-#define Exa_Leds 0x0E070000 
-#define Exa_Bouton 0x00001000 
-#define Temps 1000 //en ms
+#define TX_PIN 17  // GPIO17 comme TX
+#define RX_PIN 16  // GPIO16 comme RX
 
-int Etat = 1 ; 
-bool Etat_Bouton = LOW ;
+// Définition des constantes pour chaque valeur
+#define SERRE_ID 1            // ID du serre
+#define TRAME_NUM 150         // Numéro de la trame
+#define TEMPERATURE 23.5      // Température en °C
+#define HUMIDITE 65           // Humidité en %
 
-void setup() 
-{
+HardwareSerial mySerial(2);  // UART2
 
-  Setup(Exa_Leds, Exa_Bouton);
-
+void setup() {
+    Serial.begin(9600);  // Moniteur Série USB
+    mySerial.begin(200, SERIAL_8N1, RX_PIN, TX_PIN);  // UART2
 }
 
-//Allumage simple
-void loop() 
-{
+void loop() {
+    // Construire la trame avec les valeurs définies
+    String data = "SERRE;" + String(SERRE_ID) + ";" + String(TRAME_NUM) + ";" + String(TEMPERATURE) + ";C;" + String(HUMIDITE) + ";%";
+    String trame = "\x02" + data + "\x03\r\n";  // Construction de la trame
 
-Etat_Bouton = Lire(Exa_Bouton);
+    mySerial.print(trame);  // Envoi via UART
+    Serial.println("Trame envoyée : " + trame);  // Debug via USB
 
-if (Etat == 0 & Etat_Bouton == HIGH) 
-  {
-
-  Allume(Exa_Leds);
-  delay(Temps);
-  Etat = 1;
-  Etat_Bouton = Lire(Exa_Bouton);
-
-  }
-
-if (Etat == 1 & Etat_Bouton == HIGH)
-  {
-
-  Eteindre(Exa_Leds);
-  delay(Temps);
-  Etat = 0;
-  Etat_Bouton = Lire(Exa_Bouton);
-
-  }
+    delay(1000);  // Pause 1s
 }
-
-//chenillard
-// void loop() {
-
-// Etat_Bouton = Lire(Exa_Bouton);
-
-// if (Etat_Bouton == 1) {
-
-//   while (Etat_Bouton == 0);
-//     {
-//      Chenilard(Temps, Nombre_Led);
-//      Etat_Bouton = Lire(Exa_Bouton);
-//     }
-//  }
-//     else 
-//   {
-//     Eteindre(Exa_Leds);
-//   }
-// }
