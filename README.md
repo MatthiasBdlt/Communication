@@ -4,7 +4,7 @@
 
 # tp-gestionIO
 
-**Objectifs :** 	On désire piloter un ensemble de 6 à 8 dels traversantes lors d’un appui sur un bouton poussoir nommé BP1. Chaque appui allume une del et éteint la précédente.
+**Objectifs :** 	
 
 ---
 
@@ -14,9 +14,7 @@
 
 <img src="images/AzD1R32.jpg" height="100" width="100">
 
-- de 6 à 8 DELs <img src="images/led_rouge.png" height="50" width="50">
 
-- un bouton poussoir <img src="images/bp.png" height="50" width="50">
 
 ---
 
