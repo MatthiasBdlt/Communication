@@ -8,11 +8,11 @@
 
 ## Nomenclature
 
-- une carte Az-Delivery [D1 R32](https://www.az-delivery.de/fr/products/esp32-d1-r32-board)
+- Deux carte Az-Delivery [D1 R32](https://www.az-delivery.de/fr/products/esp32-d1-r32-board)
 
 <img src="images/AzD1R32.jpg" height="100" width="100">
 
-
+- Modules RF 433 Mhz
 
 ---
 
@@ -55,5 +55,5 @@ void loop() {
 
 ```
 
-&copy; 2024 LICENCE SN-DOC Lasalle Avignon - J.BEAUMONT
+&copy; 2024 LICENCE SN-DOC Lasalle Avignon - M.Bidault
 
