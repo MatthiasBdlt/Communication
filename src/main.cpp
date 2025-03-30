@@ -1,40 +1,42 @@
 /**     // TO DO
- * @file main.cpp
- * @author Matthias Bidault
- * @brief 
- * @version 0.1
- * @date 2025-01-16
- * 
- * @copyright Copyright (c) 2025
- * 
- */
+ 
+@file main.cpp
+@author Bidault Matthias
+@brief
+@version 0.1
+@date 2025-02-06
+@copyright Copyright (c) 2024
+*/
 //////////////////////////////////////////////////////////////////////
 
 #include <Arduino.h>
+#include <DHT.h>
+#include <DHT_U.h>
+#include "RX_TX.h"
 
-#define TX_PIN 17  // GPIO17 comme TX
-#define RX_PIN 16  // GPIO16 comme RX
 
-// Définition des constantes pour chaque valeur
-#define SERRE_ID 1            // ID du serre
-#define TRAME_NUM 150         // Numéro de la trame
-#define TEMPERATURE 23.5      // Température en °C
-#define HUMIDITE 65           // Humidité en %
+#define Tx_Pin 17  // GPIO17 comme TX
+#define Rx_Pin 16  // GPIO16 comme RX
+#define Baud_Moniteur 9600  //Vitesse du moniteur series
+#define Baud_Transmition 200  //vitesse de transmition
 
-HardwareSerial mySerial(2);  // UART2
+//#define RECEPTEUR
 
-void setup() {
-    Serial.begin(9600);  // Moniteur Série USB
-    mySerial.begin(200, SERIAL_8N1, RX_PIN, TX_PIN);  // UART2
+String SERRE_ID="1" ;           // ID de la serre
+
+void setup() 
+{
+  setupMoniteurSerie(Baud_Moniteur);
+  setupTransmition(Rx_Pin, Tx_Pin, Baud_Transmition);
+  setupDHT22();
 }
 
+#ifdef RECEPTEUR 
 void loop() {
-    // Construire la trame avec les valeurs définies
-    String data = "SERRE;" + String(SERRE_ID) + ";" + String(TRAME_NUM) + ";" + String(TEMPERATURE) + ";C;" + String(HUMIDITE) + ";%";
-    String trame = "\x02" + data + "\x03\r\n";  // Construction de la trame
-
-    mySerial.print(trame);  // Envoi via UART
-    Serial.println("Trame envoyée : " + trame);  // Debug via USB
-
-    delay(1000);  // Pause 1s
+  afficherTrame();
 }
+#else
+void loop() {
+  envoyerTrame(SERRE_ID, capteurTemperature(), capteurHumidite());
+}
+#endif

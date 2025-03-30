@@ -10,6 +10,8 @@
             "includePath": [
                 "C:/Users/matth/OneDrive/Documents/Ecole Sup/LP SNDOC/elec/Communication/include",
                 "C:/Users/matth/OneDrive/Documents/Ecole Sup/LP SNDOC/elec/Communication/src",
+                "C:/Users/matth/OneDrive/Documents/Ecole Sup/LP SNDOC/elec/Communication/.pio/libdeps/esp32dev/DHT sensor library",
+                "C:/Users/matth/OneDrive/Documents/Ecole Sup/LP SNDOC/elec/Communication/.pio/libdeps/esp32dev/Adafruit Unified Sensor",
                 "C:/Users/matth/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/newlib/platform_include",
                 "C:/Users/matth/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/freertos/include",
                 "C:/Users/matth/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/freertos/include/esp_additions/freertos",
@@ -247,6 +249,8 @@
                 "path": [
                     "C:/Users/matth/OneDrive/Documents/Ecole Sup/LP SNDOC/elec/Communication/include",
                     "C:/Users/matth/OneDrive/Documents/Ecole Sup/LP SNDOC/elec/Communication/src",
+                    "C:/Users/matth/OneDrive/Documents/Ecole Sup/LP SNDOC/elec/Communication/.pio/libdeps/esp32dev/DHT sensor library",
+                    "C:/Users/matth/OneDrive/Documents/Ecole Sup/LP SNDOC/elec/Communication/.pio/libdeps/esp32dev/Adafruit Unified Sensor",
                     "C:/Users/matth/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/newlib/platform_include",
                     "C:/Users/matth/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/freertos/include",
                     "C:/Users/matth/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/freertos/include/esp_additions/freertos",
