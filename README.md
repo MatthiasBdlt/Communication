@@ -2,7 +2,7 @@
 
 # tp-RF
 
-**Objectifs :** 	
+**Objectifs : Communiquer entre deux ESP32 en sans fil avec un module radio fréquences ** 	
 
 ---
 
